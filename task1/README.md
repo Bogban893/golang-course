@@ -1,62 +1,36 @@
-# Домашнее задание №1  
-## CLI-инструмент для получения информации о репозитории GitHub
+# GitHub Repo Info CLI
 
----
+A simple console tool in Go that shows basic information about any public GitHub repository.
 
-## Задача
+## Features
 
-Необходимо реализовать простой CLI-инструмент на Go, который получает информацию о репозитории GitHub и выводит её в консоль.
+Displays:
 
-Инструмент должен:
+- repository name
+- description
+- number of stars
+- number of forks
+- creation date
 
-- принимать параметры репозитория (способ передачи --- на ваше усмотрение),
-- отправлять HTTP-запрос к GitHub,
-- получать JSON-ответ,
-- выводить ключевую информацию в читаемом виде.
+## Installation and Usage
 
-Репозиторий должен быть обязательно оформлен (хотя бы минимальный README с инструкцией к запуску).
+```bash
+git clone https://github.com/Bogban893/golang-course.git
+cd task1
+go build
+./task1 owner repo
 
----
+or
 
-## Минимальная информация, которую необходимо вывести
+go run . owner repo
+```
 
-1. Имя репозитория  
-2. Описание  
-3. Количество звёзд  
-4. Количество форков  
-5. Дата создания  
+**Example output:**
 
----
-
-## Требования
-
-- Использовать только стандартную библиотеку Go.
-- Для сетевых запросов использовать `net/http`.
-- Выводить информацию в читаемом виде.
-- Обработать возможные ошибки:
-  - отсутствие репозитория,
-  - сетевые ошибки,
-  - некорректный ввод.
----
-
-## Формат сдачи задания
-
-Необходимо добавить ревьюеров в collaborators репозитория: `Settings -> Collaborators -> Add people`
-Ревьюеры:
-- https://github.com/suvorovrain
-- https://github.com/Dabzelos
-- https://github.com/vacmannnn
-
-Работу над заданием необходимо вести в отдельной ветке.
-
-В конце работы необходимо открыть PR из вашей ветки в main вашего форка и отметить ревьюеров в разделе `Reviewers`.
-
-В PR с выполненным заданием необходимо приложить скриншот работы приложения :).
-
-Рекоммендуется писать адекватное описание коммитов и PR.
-
-
-## Полезные материалы
-
-- Крутая книга для изучения GoLang: Jon Bodner --- Learning Go
-- Необходимая документация API GitHub для выполнения задания: https://docs.github.com/en/rest/repos
+```cmd
+Repository: golang-course
+Description: Homework for GoLang course 2026
+Stars: 0
+Forks: 0
+Created: 2026-03-05T16:22:41Z
+```
