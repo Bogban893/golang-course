@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
 
 type RepoInfo struct {
@@ -51,7 +52,7 @@ func request(owner string, repo string) (*RepoInfo, error) {
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Println("Incorrect input")
+		fmt.Println("Incorrect \tinput \nExpected \tinput: owner repo")
 		return
 	}
 	res, err := request(os.Args[1], os.Args[2])
@@ -59,6 +60,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	fmt.Printf("Repository: %s\nDescription: %s\nStars: %d\nForks: %d\nCreated: %s\n",
-		res.Name, res.Description, res.Stars, res.Forks, res.Date)
+	t, err := time.Parse(time.RFC3339, res.Date)
+	fmt.Printf("Repository: \t%s\nDescription: \t%s\nStars:  \t%d\nForks:  \t%d\nCreated: \t%s\n",
+		res.Name, res.Description, res.Stars, res.Forks, t.Format("January 2, 2006"))
 }
